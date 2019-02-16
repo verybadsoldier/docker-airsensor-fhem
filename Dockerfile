@@ -5,7 +5,7 @@ RUN apt-get update;apt-get install -y \
 	git \
 	libusb-dev
 
-RUN git clone https://github.com/verybadsoldier/airsensor.git
+RUN git clone --branch 1.0.0 https://github.com/verybadsoldier/airsensor.git
 RUN cd airsensor;make
 
 
@@ -21,5 +21,6 @@ COPY run_airsensor.sh /airsensor/run_airsensor.sh
 RUN chmod 777 /airsensor/run_airsensor.sh;chmod +x /airsensor/airsensor
 
 ENV FHEM_HOST=minion FHEM_PORT=7072 FHEM_DEVICE=fl_airSensor FHEM_READING=airQuality
+ENV PATH=/airsensor;$PATH
 
-CMD /airsensor/run_airsensor.sh
+CMD run_airsensor.sh
