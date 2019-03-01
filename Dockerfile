@@ -1,5 +1,10 @@
 FROM alpine:latest AS builder
 
+LABEL maintainer="verybadsoldier"
+LABEL version="1.0.2"
+LABEL description="airsensor pushing readings to FHEM - supports iAQ Voltcraft CO20/Velux Raumlauftfühler"
+LABEL vcs-url="https://github.com/verybadsoldier/docker-airsensor-fhem"
+
 # apk install
 RUN apk update && \
     apk add build-base && \
