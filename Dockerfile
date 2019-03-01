@@ -23,7 +23,7 @@ COPY --from=builder airsensor/airsensor /airsensor/airsensor
 COPY run_airsensor.sh /airsensor/run_airsensor.sh
 RUN chmod +x /airsensor/run_airsensor.sh;chmod +x /airsensor/airsensor
 
-ENV FHEM_HOST=minion FHEM_PORT=7072 FHEM_DEVICE=fl_airSensor FHEM_READING=airQuality INTERVAL=10 \
+ENV FHEM_HOST=fhemHost FHEM_PORT=7072 FHEM_DEVICE=airDevice FHEM_READING=airQuality INTERVAL=10 \
 	CONNECT_TIMEOUT=2
 ENV PATH=/airsensor:$PATH
 
